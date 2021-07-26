@@ -1,0 +1,332 @@
+﻿
+@using StajUygulama2.Models;
+
+@model StajUygulama2.Models.OgrenciBilgi
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container ">
+    <br />
+    <h3 class=" text-white p-3" style="background-color: #204E5F;">Öğrenci Bilgi Sistemi</h3>
+
+    <div class="m-5" >
+        <form asp-action="Update" method="post" class="m-5">
+
+            <input type="hidden" name="original.Id" value="@Model.Id" />
+            <input type="hidden" name="original.Donem" value="@Model.Donem" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Adres1" value="OgrenciAdresBilgi.Adres1" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Adres2" value="@Model.OgrenciAdresBilgi?.Adres2" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Sehir" value="@Model.OgrenciAdresBilgi?.Sehir" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Semt" value="@Model.OgrenciAdresBilgi?.Semt" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.PostaKodu" value="@Model.OgrenciAdresBilgi?.PostaKodu" />
+            <input type="hidden" name="original.OgrenciOkulbilgi.Sınıf" value="@Model.OgrenciOkulBilgi?.Sınıf" />
+            <input type="hidden" name="original.OgrenciOkulbilgi.OgrenciNo" value="@Model.OgrenciOkulBilgi?.OgrenciNo" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Statu" value="@Model.OgrenciAdresBilgi?.Statu" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Telefon1" value="@Model.OgrenciAdresBilgi?.Telefon1" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Telefon2" value="@Model.OgrenciAdresBilgi?.Telefon2" />
+            <input type="hidden" name="original.OgrenciAileBilgi.AnneBabaDurum" value="@Model.OgrenciAileBilgi?.AnneBabaDurum" />
+            <input type="hidden" name="original.OgrenciAileBilgi.KiminleKaliyor" value="@Model.OgrenciAileBilgi?.KiminleKaliyor" />
+            <input type="hidden" name="original.OgrenciAileBilgi.KardesSayisi" value="@Model.OgrenciAileBilgi?.KardesSayisi" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Eposta" value="@Model.OgrenciAdresBilgi?.Eposta" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.Okul" value="@Model.OgrenciOkulBilgi?.Okul" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.OgrenciTipi" value="@Model.OgrenciOkulBilgi?.OgrenciTipi" />
+            <input type="hidden" name="original.Cinsiyet" value="@Model.Cinsiyet" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.AyrilmaNedeni" value="@Model.OgrenciOkulBilgi?.AyrilmaNedeni" />
+            <input type="hidden" name="original.DogumTarihi" value="@Model.DogumTarihi" />
+            <input type="hidden" name="original.DogumYeri" value="@Model.DogumYeri" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.OncekiOkul" value="@Model.OgrenciOkulBilgi?.OncekiOkul" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.AboneDurumu" value="@Model.OgrenciOkulBilgi?.AboneDurumu" />
+            <input type="hidden" name="original.KanGrubu" value="@Model.KanGrubu" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.Notlar" value="@Model.OgrenciOkulBilgi?.Notlar" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.ServisNo" value="@Model.OgrenciOkulBilgi?.ServisNo" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.YatakNo" value="@Model.OgrenciOkulBilgi?.YatakNo" />
+            <input type="hidden" name="original.OgrenciOkulBilgi.OdaNo" value="@Model.OgrenciOkulBilgi?.OdaNo" />
+
+            <input type="hidden" name="original.OgrenciOkulBilgi.Id" value="@Model.OgrenciOkulBilgi?.Id" />
+            <input type="hidden" name="original.OgrenciAdresBilgi.Id" value="@Model.OgrenciOkulBilgi?.Id" />
+            <input type="hidden" name="original.OgrenciAileBilgi.Id" value="@Model.OgrenciOkulBilgi?.Id" />
+
+            <form asp-action="Update" method="post" class="m-5">
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <nav>
+                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Kişisel</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Aile</a>
+                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Adres</a>
+                                <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Okul</a>
+                            </div>
+                        </nav>
+                        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Kodu: </label>
+                                            <input asp-for="Id" class="form-control" disabled="disabled" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Dönemi: </label>
+                                            <select class="form-control" asp-for="Donem">
+                                                <option value="0">2020-2021</option>
+                                                <option value="1">2019-2020</option>
+                                                <option value="2">2018-2019</option>
+                                                <option value="3">2017-2018</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Adı: </label>
+                                            <span asp-validation-for="Ad" class="text-danger">*</span>
+                                            <input asp-for="Ad" id="ad" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Soyadı: </label>
+                                            <span asp-validation-for="Soyad" class="text-danger">*</span>
+                                            <input id="soyad" asp-for="Soyad" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Cinsiyet: </label>
+                                            <select class="form-control" asp-for="Cinsiyet">
+                                                <option value="0">Kadın</option>
+                                                <option value="1">Erkek</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Doğum Tarihi: </label>
+                                            <input type="date" asp-for="DogumTarihi" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Doğum Yeri: </label>
+                                            <input asp-for="DogumYeri" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kan Grubu: </label>
+                                            <select class="form-control" asp-for="KanGrubu">
+                                                <option value="0">A Pozitif</option>
+                                                <option value="1">A Negatif</option>
+                                                <option value="2">B Pozitif</option>
+                                                <option value="3">B Negatif</option>
+                                                <option value="4">AB Pozitif</option>
+                                                <option value="5">AB Negatif</option>
+                                                <option value="6">0 Pozitif</option>
+                                                <option value="7">0 Negatif</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <h4 style="margin: 10px; font-family: sans-serif; font-weight: bold;">Fotoğraf</h4>
+                                            <input style="height:190px; width:200px" type="file" class="form-control"><br />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Anne Ve Baba Birlikte Mi: </label>
+                                            <select class="form-control" asp-for="OgrenciAileBilgi.AnneBabaDurum">
+                                                <option value="0">Ayrı </option>
+                                                <option value="1">Birlikte </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kiminle Kalıyor: </label>
+                                            <select class="form-control" asp-for="OgrenciAileBilgi.KiminleKaliyor">
+                                                <option value="0">Anne İle</option>
+                                                <option value="1">Baba İle</option>
+                                                <option value="2">Hep Birlikte</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Kardeş Sayısı: </label>
+                                            <input asp-for="OgrenciAileBilgi.KardesSayisi" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Adres1: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Adres1" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Adres2: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Adres2" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Statu: </label>
+                                            <select class="form-control" asp-for="OgrenciAdresBilgi.Statu">
+                                                <option value="0">Kullanımda</option>
+                                                <option value="1">Kullanımda Değil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Semt: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Semt" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Şehir: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Sehir" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Posta Kodu: </label>
+                                            <input asp-for="OgrenciAdresBilgi.PostaKodu" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Telefon1: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Telefon1" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Telefon2: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Telefon2" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>E-posta: </label>
+                                            <input asp-for="OgrenciAdresBilgi.Eposta" class="form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Sınıf: </label>
+                                            <input asp-for="OgrenciOkulBilgi.Sınıf" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Öğrenci Numarası: </label>
+                                            <input asp-for="OgrenciOkulBilgi.OgrenciNo" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Öğrenci Tipi: </label>
+                                            <input asp-for="OgrenciOkulBilgi.OgrenciTipi" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Okul: </label>
+                                            <input asp-for="OgrenciOkulBilgi.Okul" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Önceki Okul: </label>
+                                            <input asp-for="OgrenciOkulBilgi.OncekiOkul" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Ayrılma Nedeni: </label>
+                                            <input asp-for="OgrenciOkulBilgi.AyrilmaNedeni" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Servis No: </label>
+                                            <input asp-for="OgrenciOkulBilgi.ServisNo" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Oda No: </label>
+                                            <input asp-for="OgrenciOkulBilgi.OdaNo" class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Yatak No: </label>
+                                            <input asp-for="OgrenciOkulBilgi.YatakNo" class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Abone Durumu: </label>
+                                            <select class="form-control" asp-for="OgrenciOkulBilgi.AboneDurumu">
+                                                <option value="0">Abone</option>
+                                                <option value="1">abone Değil</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Notlar: </label>
+                                            <textarea asp-for="OgrenciOkulBilgi.YatakNo" class="form-control">
+                                </textarea>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <button typeof="button" id="btn-kaydet" class="btn" style="background-color: #204E5F; color:white; position:absolute; right:450px;"><strong>Kaydet</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </form>
+    </div>
+</div>
+
+
+<style>
+
+
+    nav > .nav.nav-tabs {
+        border: none;
+        color: #fff;
+        background: #204E5F;
+        border-radius: 0;
+    }
+
+    nav > div a.nav-item.nav-link,
+    nav > div a.nav-item.nav-link.active {
+        border: none;
+        padding: 18px 25px;
+        color: #fff;
+        background: #204E5F;
+        border-radius: 0;
+    }
+
+        nav > div a.nav-item.nav-link.active:after {
+            content: "";
+            position: relative;
+            bottom: -60px;
+            left: -10%;
+            border: 15px solid transparent;
+            border-top-color: #79A7A8;
+        }
+
+    .tab-content {
+        background: #fdfdfd;
+        line-height: 25px;
+        border: 1px solid #ddd;
+        border-top: 10px solid #79A7A8;
+        border-bottom: 7px solid #79A7A8;
+        padding: 30px 25px;
+    }
+
+    nav > div a.nav-item.nav-link:hover,
+    nav > div a.nav-item.nav-link:focus {
+        border: none;
+        background: #79A7A8;
+        color: #fff;
+        border-radius: 0;
+        transition: background 0.20s linear;
+    }
+</style>
+
+@section JavaScript{
+    <script src="~/lib/jqueryValid/jquery.validate.min.js"></script>
+    <script src="~/lib/jqueryUnob/jquery.validate.unobtrusive.min.js"></script>
+}

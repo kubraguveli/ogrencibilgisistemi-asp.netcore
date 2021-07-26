@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Layout</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link href="~/lib/toastr.js/toastr.css" rel="stylesheet" />
+    <script src="~/lib/toastr.js/toastr.min.js"></script>
+    <link href="~/lib/toastr.js/toastr.css" rel="stylesheet" />
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @RenderBody()
+
+        <script>
+            jQuery(document).ready(function ($) {
+
+                $("#filter").submit(function () {
+                    $(this).find(":input").filter(function () { return !this.value; }).attr("disabled", "disabled");
+                    return true;
+                });
+
+                $("form").find(":input").prop("disabled", false);
+            });
+
+            $("#btn-kaydet").click(function () {
+
+                var ad = $("#ad").val();
+                var soyad = $("#soyad").val();
+
+                if ((ad == null || ad == "") || (soyad == null ||soyad == ""))
+                {
+                    toastr.error("Lütfen gerekli bilgileri giriniz");
+                }
+
+                else
+                {
+                    toastr.success("Kayıt işleminiz başarı ile gerçekleştirilmiştir.");
+                }
+                
+            });
+          
+        </script>
+    </div>
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    @RenderSection("JavaScript",false)
+</body>
+</html>
